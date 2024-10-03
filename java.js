@@ -2,52 +2,73 @@
 const userInput = prompt("Rock, paper or scissors?");
 // Create a variable that stores the computer choice.
 const computerChoice = getComputerChoice();
+// Create two variables that keeps track of the score between human and computer
+let scoreHuman = 0;
+let scoreMachine = 0;
+let scoreTie = 0;
 
-// Check if userInput is equal to computerChoice
-if (userInput === computerChoice) {
-  // If this is the case console.log tie
-  console.log(`You chose ${userInput} computer chose ${computerChoice} Tie!`);
+playRound(userInput, computerChoice);
+
+// Create a function that evaluates both userInput and Computer choice to evaluate the result
+function playRound(userInput, computerChoice) {
+  // Check if userInput is equal to computerChoice
+  if (userInput === computerChoice) {
+    // If this is the case console.log tie
+    console.log(`You chose ${userInput} computer chose ${computerChoice} Tie!`);
+    scoreTie++;
+  }
+  // Check if userInput is rock
+  else if (userInput.toLowerCase() === "rock") {
+    // Check if computer choice is equal to paper
+    if (computerChoice === "paper") {
+      // If computer choses paper console.log 'You lose'
+      console.log(
+        `You chose ${userInput} and computer chose ${computerChoice} you lose!`
+      );
+      scoreMachine++;
+    } else {
+      // Create condition for when computer chooses scissors
+      // If compuer choosese scissors human win
+      console.log(
+        `You chose ${userInput}, comuter chose ${computerChoice} You win!`
+      );
+      scoreHuman++;
+    }
+  } else if (userInput.toLowerCase() === "paper") {
+    // Check if user input equals paper
+    if (computerChoice === "rock") {
+      // Check if computer chooses rock
+      console.log(
+        `You chose ${userInput}, computer chose ${computerChoice}. You win!`
+      ); // print You win! to the console
+      scoreHuman++;
+    } else {
+      console.log(
+        `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
+      ); // print You lose! to the console
+      scoreMachine++;
+    }
+  } else if (userInput.toLowerCase() === "scissors") {
+    // Check if user choose scissor
+    if (computerChoice === "rock") {
+      // Check if computer choses rock
+      console.log(
+        `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
+      ); // if computer chose rock print You lose! to the console
+      scoreMachine++;
+    } else {
+      console.log(
+        `You chose ${userInput}, computer chose ${computerChoice}. You win!`
+      ); // print you win to the console
+      scoreHuman++;
+    }
+  }
 }
-// Check if userInput is rock
-else if (userInput.toLowerCase() === "rock") {
-  // Check if computer choice is equal to paper
-  if (computerChoice === "paper") {
-    // If computer choses paper console.log 'You lose'
-    console.log(
-      `You chose ${userInput} and computer chose ${computerChoice} you lose!`
-    );
-  } else {
-    // Create condition for when computer chooses scissors
-    // If compuer choosese scissors human win
-    console.log(
-      `You chose ${userInput}, comuter chose ${computerChoice} You win!`
-    );
-  }
-} else if (userInput.toLowerCase() === "paper") {
-  // Check if user input equals paper
-  if (computerChoice === "rock") {
-    // Check if computer chooses rock
-    console.log(
-      `You chose ${userInput}, computer chose ${computerChoice}. You win!`
-    ); // print You win! to the console
-  } else {
-    console.log(
-      `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
-    ); // print You lose! to the console
-  }
-} else if (userInput.toLowerCase() === "scissors") {
-  // Check if user choose scissor
-  if (computerChoice === "rock") {
-    // Check if computer choses rock
-    console.log(
-      `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
-    ); // if computer chose rock print You lose! to the console
-  } else {
-    console.log(
-      `You chose ${userInput}, computer chose ${computerChoice}. You win!`
-    ); // print you win to the console
-  }
-}
+
+console.log(scoreHuman);
+console.log(scoreMachine);
+console.log(scoreTie);
+
 // Create a function for computer guess
 function getComputerChoice() {
   // Create variable that generates a random number between 0 and 1
