@@ -6,34 +6,46 @@ const computerChoice = getComputerChoice();
 // Check if userInput is equal to computerChoice
 if (userInput === computerChoice) {
   // If this is the case console.log tie
-  console.log("Tie");
+  console.log(`You chose ${userInput} computer chose ${computerChoice} Tie!`);
 }
 // Check if userInput is rock
 else if (userInput.toLowerCase() === "rock") {
   // Check if computer choice is equal to paper
   if (computerChoice === "paper") {
     // If computer choses paper console.log 'You lose'
-    console.log("You lose");
+    console.log(
+      `You chose ${userInput} and computer chose ${computerChoice} you lose!`
+    );
   } else {
     // Create condition for when computer chooses scissors
     // If compuer choosese scissors human win
-    console.log("You win!");
+    console.log(
+      `You chose ${userInput}, comuter chose ${computerChoice} You win!`
+    );
   }
 } else if (userInput.toLowerCase() === "paper") {
   // Check if user input equals paper
   if (computerChoice === "rock") {
     // Check if computer chooses rock
-    console.log("You win!"); // print You win! to the console
+    console.log(
+      `You chose ${userInput}, computer chose ${computerChoice}. You win!`
+    ); // print You win! to the console
   } else {
-    console.log("You lose!"); // print You lose! to the console
+    console.log(
+      `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
+    ); // print You lose! to the console
   }
-} else if (userInput.toLowerCase() === "scissor") {
+} else if (userInput.toLowerCase() === "scissors") {
   // Check if user choose scissor
   if (computerChoice === "rock") {
     // Check if computer choses rock
-    console.log("You lose!"); // if computer chose rock print You lose! to the console
+    console.log(
+      `You chose ${userInput}, computer chose ${computerChoice}. You lose!`
+    ); // if computer chose rock print You lose! to the console
   } else {
-    console.log("You win!"); // print you win to the console
+    console.log(
+      `You chose ${userInput}, computer chose ${computerChoice}. You win!`
+    ); // print you win to the console
   }
 }
 // Create a function for computer guess
