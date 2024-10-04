@@ -1,13 +1,24 @@
 // Create a variable and get user input and ask for 'rock paper of scissor'
-const userInput = prompt("Rock, paper or scissors?");
+let userInput = "";
 // Create a variable that stores the computer choice.
-const computerChoice = getComputerChoice();
+let computerChoice = "";
 // Create two variables that keeps track of the score between human and computer
 let scoreHuman = 0;
 let scoreMachine = 0;
 let scoreTie = 0;
 
-playRound(userInput, computerChoice);
+game();
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    userInput = prompt("Rock, paper or scissors?");
+    computerChoice = getComputerChoice();
+    playRound(userInput, computerChoice);
+    console.log(
+      `Wins: ${scoreHuman}, Loses: ${scoreMachine}, Ties: ${scoreTie}`
+    );
+  }
+}
 
 // Create a function that evaluates both userInput and Computer choice to evaluate the result
 function playRound(userInput, computerChoice) {
@@ -64,10 +75,6 @@ function playRound(userInput, computerChoice) {
     }
   }
 }
-
-console.log(scoreHuman);
-console.log(scoreMachine);
-console.log(scoreTie);
 
 // Create a function for computer guess
 function getComputerChoice() {
