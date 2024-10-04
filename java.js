@@ -18,6 +18,13 @@ function game() {
       `Wins: ${scoreHuman}, Loses: ${scoreMachine}, Ties: ${scoreTie}`
     );
   }
+  if (scoreHuman > scoreMachine) {
+    console.log("You won the game!");
+  } else if (scoreHuman < scoreMachine) {
+    console.log("You lost the game!");
+  } else {
+    console.log("You fought hard, but it is a tie!");
+  }
 }
 
 // Create a function that evaluates both userInput and Computer choice to evaluate the result
